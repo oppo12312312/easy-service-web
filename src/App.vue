@@ -1,24 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: zhongshuai
+ * @LastEditors: zhongshuai
+ * @Date: 2019-02-21 10:13:54
+ * @LastEditTime: 2019-02-21 11:19:18
+ -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img
+      alt="  Vue logo"
+      src="./assets/logo.png"
+    >
+    <serviceTest></serviceTest>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import serviceTest from './components/serviceTest.vue';
+
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
+    serviceTest
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family   : 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
