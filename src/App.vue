@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-21 10:13:54
- * @LastEditTime: 2019-02-21 11:19:18
+ * @LastEditTime: 2019-04-23 15:05:32
  -->
 <template>
   <div id="app">
@@ -12,17 +12,20 @@
       src="./assets/logo.png"
     >
     <serviceTest></serviceTest>
+    <tree></tree>
   </div>
 </template>
 
 <script>
 import serviceTest from './components/serviceTest.vue';
+import tree from './components/tree.vue';
 
 
 export default {
   name: 'App',
   components: {
-    serviceTest
+    serviceTest,
+    tree
   }
 };
 </script>
