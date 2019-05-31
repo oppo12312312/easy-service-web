@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-21 10:51:05
- * @LastEditTime: 2019-04-07 20:17:47
+ * @LastEditTime: 2019-05-26 18:06:58
  -->
 
 <template>
@@ -19,11 +19,14 @@
     <el-button @click="update">
       update
     </el-button>
-    <el-button @click="eventSource">
-      eventSource
+    <el-button @click="inset">
+      inset
+    </el-button>
+    <el-button @click="deleteAtt">
+      delete
     </el-button>
     <el-button @click="eventSource">
-      event
+      eventSource
     </el-button>
   </dir>
 </template>
@@ -58,9 +61,9 @@ export default {
             // '<=': '2020-02-22 15:33:10', 
             // 'between': ['2016-02-22 15:33:10', '2020-02-22 15:33:10'], // between 和 not between 后面必须是一个length=2的数组， 否则会报错
             // 'not between': ['2010-02-22 15:33:10', '2011-02-22'] 
-            '>=': '1298388790', 
-            '<=': '1614007990', 
-            'between': ['1298388790', '1614007990'], // between 和 not between 后面必须是一个length=2的数组， 否则会报错
+            '>=': 1298388790, 
+            '<=': 1614007990, 
+            'between': [1298388790, 1614007990], // between 和 not between 后面必须是一个length=2的数组， 否则会报错
             'not between': ['45', '23'] 
           },
           // in 有两种模式, 下面的是简写，也可以这样： enum: {in :[1, 11]}, 
@@ -72,7 +75,7 @@ export default {
           //   in: ['1121'] 
           // },
           // = 也有两种模式，下面的是简写，也可以这样：id: {"=" , 1}
-          id: 1
+          id: '1'
         },
         //columns 如果不传,则查询表中的所有字段，传入的字段必须是tableName中存在的字段，否则报错
         columns: ['enum', 'text', 'dateTime'],
@@ -95,12 +98,38 @@ export default {
         // 必须传入字段
         tableName: 'teTest',
         where: {
-          id: 1
+          id: '1'
         },
         //columns 如果不传,则查询表中的所有字段，传入的字段必须是tableName中存在的字段，否则报错
         data: { text: '54444' }
       };
       instance.post('/update', example).then(res => {
+        this.res = JSON.stringify(res);
+      }).catch(info => {
+        this.res = JSON.stringify(info.response.data);
+      });
+    },
+    inset() {
+      const example = {
+        // 必须传入字段
+        tableName: 'teTest',
+        //columns 如果不传,则查询表中的所有字段，传入的字段必须是tableName中存在的字段，否则报错
+        data: { text: '54444', enum: 3, dateTime: 1298388790 }
+      };
+      instance.post('/inset', example).then(res => {
+        this.res = JSON.stringify(res);
+      }).catch(info => {
+        this.res = JSON.stringify(info.response.data);
+      });
+    },
+    deleteAtt() {
+      const example = {
+        // 必须传入字段
+        tableName: 'teTest',
+        //columns 如果不传,则查询表中的所有字段，传入的字段必须是tableName中存在的字段，否则报错
+        id: '85afc8b5-7e08-11e9-af95-0'
+      };
+      instance.post('/delete', example).then(res => {
         this.res = JSON.stringify(res);
       }).catch(info => {
         this.res = JSON.stringify(info.response.data);
