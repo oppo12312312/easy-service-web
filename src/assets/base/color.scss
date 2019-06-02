@@ -1,0 +1,113 @@
+/****************基础颜色******************/
+$color-1: #2a3779;
+$color-2: #f0f2fb;
+$color-3: #ffffff;
+$color-4: #7f7f7f;
+$color-5: #5c6abe;
+$color-6: #333333;
+$color-7: #1C2861;
+$color-8: #c1c4fd;
+$color-9: #F6F7FF;
+$color-10: #38439F;
+$color-11: #41465F;
+$color-12:#ECEEF8;
+$color-13:#BEC1CE;
+$color-14:#A6ABBF;
+$color-15:#FBFBFF;
+$color-16: #D1D3DD;
+/****************background******************/
+$bg: $color-2; //整体背景颜色
+$bg-content-left:$color-15;
+$bg-large:#131529;
+
+$bg-content:$color-9; //整体内容颜色
+
+$bg-menu-start: #374691; //菜单的背景颜色开始
+$bg-menu-stop: $color-1; //菜单的背景颜色
+$bg-menu-border: #152055; //border
+$bg-menu-shadow: rgba(21, 32, 85, 0.71); //菜单的背景shadow
+$bg-nav:$color-1; //二级菜单背景色
+
+$bg-button: $color-5; //按钮的背景颜色
+$bg-button-gray: $color-13; //灰色按钮色
+$bg-button-hover:$color-10; //按钮hove颜色
+$bg-button-close:$color-11; //按钮close颜色
+
+$bg-font-line-start: #d9dafc; //整体文字背景色起点
+$bg-font-line-stop: #758cc1; //整体文字背景色重点
+
+$bg-plant:#232F6C;
+
+$bg-white: $color-3; //白色背景
+
+$bg-select: $color-9;
+
+$bg-left-nav: $color-15; //左侧栏背景色
+
+
+/**********************font******************/
+$font-white: $color-3; //文字的基础颜色白色
+$font-gray: $color-4; //文字整体基础字体灰色
+$font-black: $color-6; //文字整体基础字体黑色
+$font-blue-deep: $color-7; //文字的基础颜色深蓝色
+$font-blue-light: $color-8; //文字的基础颜色潜蓝色
+$font-svg:#CCD2EB; //svg颜色
+
+/**********************color******************/
+$color-focus-input-icon: $color-5;
+$color-placeholder: $color-4;
+$color-link-a: $color-7;
+$color-link-a-delete: $color-5;
+
+
+/**********************business******************/
+
+$bg-camera-no-video: #41465f; //相机断开的背景色
+$font-camera-no-video: #a3aeda; //相机中文字的基础颜色
+$bg-camera-normal: $color-12; //相机正在播放的背景色
+
+$img-border: $color-8; //图片四个脚边框颜色
+$strangr-label-bg: #F6D32C; //陌生人标签背景颜色
+$strangr-label-border: #F6D32C; //陌生人标签背景颜色
+$visitor-label-bg: #5C6ABE; //陌生人标签背景颜色
+$visitor-label-border: #5C6ABE; //陌生人标签背景颜色
+$focus-card-bg: $color-3; //重点关注整体背景
+$camera-choose-border:$color-9;
+
+$global-border:$color-12;
+$bg-role-add:$color-12;
+
+$bg-table-title: rgba(246, 247, 255, .5); //表格头背景
+$bg-table-body: rgba(246, 247, 255, .5); //表格body背景
+$bg-table-hover: rgba(236, 238, 248, .5); //表格行hover背景
+
+$color-multiple-text: $color-5; //多选上传图字体颜色
+
+$bg-slider-inner:#5C6ABE;
+$bg-slider-wheel-border:#5B69BE;
+$bg-select-hover:$color-12;
+
+$color-warn: #AE2525;   // 表单提示颜色
+
+$bg-select:$color-12;    //选中背景
+
+
+$bg-tree: $color-9;    // 员工管理左侧树背景
+$bg-load-more: $color-12;  
+$color-load-more-a: #606266;
+
+$bg-search-select: $color-2;
+$bg-search-select-left-icon: $color-5;
+$color-search-select-left-text: $color-5;
+
+$tab-bottom-color: $color-5;
+
+$disbabled-buttom-bg: $color-16;     //禁用按钮背景色
+
+
+$step-wait-color: $color-12;
+$step-process-finish-color: $color-5;
+$upload-color: #919BD4;
+$upload-list-hover: #F0F2FB;
+
+$global-shadow: 0 4px 20px 0 rgba(14,87,161,.08);
