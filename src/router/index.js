@@ -40,8 +40,6 @@ export default new VueRouter({
       path: '/test',
       name: 'test',
       component: test,
-    //   redirect: '/largeCreen/index',
-    //   children: childRoutes
     }
   ]
 });
