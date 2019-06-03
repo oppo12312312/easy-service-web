@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-31 14:46:49
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-02 12:54:12
+ * @LastEditTime: 2019-06-02 15:19:57
  -->
 
 <template>
@@ -73,7 +73,11 @@ export default {
     };
   },
   methods: {
-    handleLogin() {}
+    handleLogin() {
+      this.$router.push({
+        name: 'home'
+      });
+    }
   }
 
 };

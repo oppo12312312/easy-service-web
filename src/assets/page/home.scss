@@ -1,0 +1,40 @@
+.meg-home{
+    @extend .db;
+    @extend .fx1;
+    margin: 20px 40px;
+    
+    .divider{
+        width: 50px;
+    }
+    .info{
+        @extend .db;
+        @extend .v;
+        @extend .fx1;
+        //home 是左右布局的，所以home下面的元素高度是自适应的，没有height 100%，就会被内容撑开
+        @extend .height100;
+        
+    }
+    .title{
+        color: $font-blue-deep;
+        font-size: $font-16;
+        padding: 10px;
+        padding-left: 0px;
+        margin-bottom: 20px;
+        position: relative;
+        span{
+            margin-left: 10px;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -.5em;
+            height: 1em;
+            width: 2px;
+            border-radius: 2px;
+            background-color:$font-blue-deep;
+            
+        }
+    }
+}

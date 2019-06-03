@@ -1,6 +1,12 @@
+//基础样式
 @import "@/assets/base/index.scss";
-@import "@/assets/base/resert.scss";
+//字体
 @import "@/assets/font/index.scss";
 
-
+//登录页
 @import "@/assets/page/login.scss";
+//主体布局menu及title
+@import "@/assets/page/layout.scss";
+//首页
+@import "@/assets/page/home.scss";
+

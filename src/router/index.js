@@ -3,11 +3,13 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-02 11:54:34
+ * @LastEditTime: 2019-06-02 23:48:50
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import login from '@/page/login';
+import layout from '@/page/layout';
+import home from '@/page/home';
 import test from '@/page/test';
 Vue.use(VueRouter);
 /**
@@ -27,7 +29,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/test'
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -36,7 +38,20 @@ export default new VueRouter({
     //   redirect: '/largeCreen/index',
     //   children: childRoutes
     },
+    
     {
+      path: '/layout',
+      name: 'layout',
+      component: layout,
+      redirect: '/home',
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: home,
+        }
+      ]
+    }, {
       path: '/test',
       name: 'test',
       component: test,

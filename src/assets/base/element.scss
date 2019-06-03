@@ -1,0 +1,14 @@
+/* 滚动条初始化 */
+.el-scrollbar {
+    vertical-align: inherit;
+    overflow: hidden;
+
+    .el-scrollbar__bar .is-horizontal {
+        display: none !important;
+    }
+
+    .el-scrollbar__wrap {
+        margin-bottom: 0px !important;
+        overflow-x: hidden !important;
+    }
+}
