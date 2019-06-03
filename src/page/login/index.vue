@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-31 14:46:49
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-02 15:19:57
+ * @LastEditTime: 2019-06-03 15:05:06
  -->
 
 <template>
@@ -16,13 +16,16 @@
       </div>
     </div>
 
-    <div class="login-form">
+    <div
+      class="login-form"
+      v-if="login"
+    >
       <div 
         class="login-form-right" 
         @keyup.enter="handleLogin"
       >
         <div class="title">
-          <span>用户登录</span>
+          <span></span>
         </div>
         <div class="login-form-title">
           用户名
@@ -58,10 +61,31 @@
         </div>
       </div>
     </div>
+    <div
+      class="login-form"
+      v-else
+    >
+      <div
+        class="phone-verify"
+      >
+        <el-input
+          v-model="verifyNumber"
+          placeholder="请输入验证码"
+        ></el-input>
+        <el-button
+          class="mt"
+          :type="timeOver? 'primary': 'info'"
+          :disabled="!timeOver"
+        >
+          {{ verifyText }}
+        </el-button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'Login',
   data() {
@@ -69,14 +93,49 @@ export default {
       loginForm: {
         userName: '',
         password: ''
-      }
+      },
+      verifyNumber: '',
+      sec: 60,
+      login: true,
+
     };
+  },
+  computed: {
+    verifyText() {
+      let re = '';
+      if (this.timeOver) {
+        re = '重新获取';
+      } else {
+        re = `${this.sec} s 之后重新获取`;
+      }
+      return re;
+    },
+    timeOver() {
+      return this.sec === 0;
+    }
+  },
+  watch: {
+    login(value) {
+      debugger;
+      if (!value) {
+        this.start();
+      }
+    }
   },
   methods: {
     handleLogin() {
-      this.$router.push({
-        name: 'home'
-      });
+      this.login = false;
+    },
+    start() {
+      this.sec = 3;
+      const scope = this;
+      scope.timer = setInterval(() => {
+        if (scope.sec > 0) {
+          scope.sec--;
+        } else {
+          clearInterval(scope.timer);
+        }
+      }, 1000);
     }
   }
 
