@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:00:59
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-02 23:37:11
+ * @LastEditTime: 2019-06-04 17:46:32
  -->
 <template>
   <div class="meg-menu">
@@ -33,6 +33,12 @@ export default {
   data() {
     return {
       menuCfg: [
+        {
+          index: 0,
+          name: '消息中心',
+          icon: 'icon-user-info',
+          router: 'massage',
+        },
         {
           index: 1,
           name: '账号信息',

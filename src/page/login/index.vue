@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-31 14:46:49
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-03 15:05:06
+ * @LastEditTime: 2019-06-04 18:43:07
  -->
 
 <template>
@@ -25,7 +25,7 @@
         @keyup.enter="handleLogin"
       >
         <div class="title">
-          <span></span>
+          <span>用户登录</span>
         </div>
         <div class="login-form-title">
           用户名
@@ -68,12 +68,16 @@
       <div
         class="phone-verify"
       >
+        <div class="login-form-title">
+          验证码
+        </div>
         <el-input
           v-model="verifyNumber"
-          placeholder="请输入验证码"
+          placeholder="请输6位入验证码"
         ></el-input>
         <el-button
           class="mt"
+          @click="reVerifyNumber"
           :type="timeOver? 'primary': 'info'"
           :disabled="!timeOver"
         >
@@ -96,7 +100,7 @@ export default {
       },
       verifyNumber: '',
       sec: 60,
-      login: true,
+      login: false,
 
     };
   },
@@ -116,15 +120,35 @@ export default {
   },
   watch: {
     login(value) {
-      debugger;
       if (!value) {
         this.start();
+      }
+    },
+    verifyNumber(value) {
+      if (value.length === 6) {
+        if (value === '123456') {
+          this.$router.push({
+            name: 'home'
+          });
+        } else {
+          this.$message({
+            message: '验证码错误',
+            type: 'warning'
+          });
+        }
+      }
+
+      if (value.length > 6) {
+        this.verifyNumber = value.substr(0, 6);
       }
     }
   },
   methods: {
     handleLogin() {
-      this.login = false;
+      // this.login = false;
+      this.$router.push({
+        name: 'home'
+      });
     },
     start() {
       this.sec = 3;
@@ -136,6 +160,12 @@ export default {
           clearInterval(scope.timer);
         }
       }, 1000);
+    },
+    reVerifyNumber() {
+      this.start();
+      this.$router.push({
+        name: 'home'
+      });
     }
   }
 

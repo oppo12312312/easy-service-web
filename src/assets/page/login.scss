@@ -51,7 +51,7 @@ $base_img_login: '/login';
             flex-direction: column;
         }
 
-        .login-form-right {
+        .login-form-right,.phone-verify {
 
             .title {
                 span {
@@ -151,11 +151,9 @@ $base_img_login: '/login';
     }
 
     .phone-verify{
-        height: 200px !important;
+        height: 280px !important;
     }
     .mt{
-        margin-top: 20px;
+        margin-top: 30px;
     }
-
-
 }
