@@ -1,0 +1,27 @@
+.meg-download-center{
+    @extend .fx1;
+    @extend .db;
+    @extend .v;
+    @extend .height100;
+    .el-table__expanded-cell{
+        background: $bg-content;
+        &:hover{
+            background-color: $bg-content !important
+        }
+        .char-top{
+            @extend .db;
+            .left{
+                @extend .fx1;
+            }
+            
+        }
+    }
+    .change-details{
+        
+        th,tr,td{
+            background: $bg-content;
+        }
+
+     
+    }
+}

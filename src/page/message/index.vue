@@ -3,14 +3,12 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:17:03
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-03 00:24:58
+ * @LastEditTime: 2019-06-05 11:18:02
  -->
 <template>
-  <div class="meg-home">
+  <div class="meg-message">
     <div class="info">
-      <div class="title">
-        <span>用户信息</span>
-      </div>
+      <megTitle>用户信息</megTitle>
       <el-scrollbar>
         <el-timeline>
           <el-timeline-item
@@ -28,9 +26,7 @@
     </div>
     <div class="divider"></div>
     <div class="info">
-      <div class="title">
-        <span>用户信息</span>
-      </div>
+      <megTitle>系统信息</megTitle>
       <el-scrollbar>
         <el-timeline>
           <el-timeline-item
@@ -50,7 +46,10 @@
 </template>
 
 <script>
+import megTitle from '@/components/megTitle';
 export default {
+  name: 'Message',
+  components: { megTitle },
   data() {
     return {
       info: [{

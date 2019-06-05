@@ -1,0 +1,38 @@
+.meg-menu{
+   
+    width: 180px;
+    .el-menu{
+        height: 100%;
+        background-image: linear-gradient(180deg,#0f1b62,#0a1544 50%,#0d1537);
+        .is-active{
+            .iconfont{
+                color: #ffffff;
+            }
+            span{
+                color: #ffffff;
+            }
+            background-image: linear-gradient(90deg,#374691,#2a3779);
+        }
+    }
+    .iconfont{
+        width: 20px;
+        display: inline-table;
+        color: rgb(140, 156, 253);
+        margin-right: 5px;
+    }
+    .el-menu-item{
+        span{
+            color: rgb(140, 156, 253);
+        }
+        &:hover{
+            background-color:#374691 !important;
+            background-image: linear-gradient(90deg,#374691,#2a3779);
+        }
+        &:focus{
+            background-color:#374691 !important;
+            background-image: linear-gradient(90deg,#374691,#2a3779);
+
+        }
+    }
+
+}

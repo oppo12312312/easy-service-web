@@ -1,0 +1,21 @@
+.meg-title{
+    color: $font-blue-deep;
+    font-size: $font-16;
+    padding: 10px;
+    padding-left: 0px;
+    position: relative;
+    span{
+        margin-left: 10px;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -.5em;
+        height: 1em;
+        width: 2px;
+        border-radius: 2px;
+        background-color:$font-blue-deep;
+    }
+}

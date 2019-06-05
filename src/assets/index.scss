@@ -1,18 +1,10 @@
+//覆盖element样式
+@import '/element-ui/lib/theme-chalk/index.css';
 //基础样式
 @import "@/assets/base/index.scss";
 //字体
 @import "@/assets/font/index.scss";
-
-
 //组件
-@import "@/assets/components/form.scss";
-
-
+@import "@/assets/components/index.scss";
 //页面
-//登录页
-@import "@/assets/page/login.scss";
-//主体布局menu及title
-@import "@/assets/page/layout.scss";
-//首页
-@import "@/assets/page/home.scss";
-
+@import "@/assets/page/index.scss";

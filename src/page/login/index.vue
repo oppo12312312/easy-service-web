@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-31 14:46:49
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-04 18:43:07
+ * @LastEditTime: 2019-06-05 09:22:45
  -->
 
 <template>
@@ -100,7 +100,7 @@ export default {
       },
       verifyNumber: '',
       sec: 60,
-      login: false,
+      login: true,
 
     };
   },
@@ -128,7 +128,7 @@ export default {
       if (value.length === 6) {
         if (value === '123456') {
           this.$router.push({
-            name: 'home'
+            name: 'message'
           });
         } else {
           this.$message({
@@ -147,7 +147,7 @@ export default {
     handleLogin() {
       // this.login = false;
       this.$router.push({
-        name: 'home'
+        name: 'message'
       });
     },
     start() {
@@ -164,7 +164,7 @@ export default {
     reVerifyNumber() {
       this.start();
       this.$router.push({
-        name: 'home'
+        name: 'message'
       });
     }
   }

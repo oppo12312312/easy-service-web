@@ -3,13 +3,17 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-02 23:48:50
+ * @LastEditTime: 2019-06-05 14:39:23
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import login from '@/page/login';
+import message from '@/page/message';
 import layout from '@/page/layout';
-import home from '@/page/home';
+import login from '@/page/login';
+import userInfo from '@/page/userInfo';
+import downloadCenter from '@/page/downloadCenter';
+import statistical from '@/page/statistical';
+
 import test from '@/page/test';
 Vue.use(VueRouter);
 /**
@@ -35,10 +39,7 @@ export default new VueRouter({
       path: '/login',
       name: 'login',
       component: login,
-    //   redirect: '/largeCreen/index',
-    //   children: childRoutes
     },
-    
     {
       path: '/layout',
       name: 'layout',
@@ -46,9 +47,24 @@ export default new VueRouter({
       redirect: '/home',
       children: [
         {
-          path: '/home',
-          name: 'home',
-          component: home,
+          path: '/message',
+          name: 'message',
+          component: message,
+        },
+        {
+          path: '/userInfo',
+          name: 'userInfo',
+          component: userInfo,
+        },
+        {
+          path: '/downloadCenter',
+          name: 'downloadCenter',
+          component: downloadCenter,
+        },
+        {
+          path: '/statistical',
+          name: 'statistical',
+          component: statistical,
         }
       ]
     }, {

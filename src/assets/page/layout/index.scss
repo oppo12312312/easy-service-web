@@ -1,0 +1,21 @@
+
+//账号信息
+@import "./title.scss";
+@import "./menu.scss";
+.meg-layout{
+    @extend .db;
+    @extend .v;
+    height: 100%;
+    .meg-bottom{
+        @extend .fx1;
+        @extend .db;
+        overflow: hidden;
+        .meg-page{
+            @extend .fx1;
+            @extend .db;
+            @extend .v;
+            padding: 20px 60px;
+            background: $bg-content;
+        }
+    }
+}
