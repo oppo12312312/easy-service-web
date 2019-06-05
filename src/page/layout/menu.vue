@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:00:59
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-05 14:39:19
+ * @LastEditTime: 2019-06-05 17:42:01
  -->
 <template>
   <div class="meg-menu">
@@ -34,27 +34,15 @@ export default {
       menuCfg: [
         {
           index: 0,
-          name: '消息中心',
+          name: 'UI',
           icon: 'icon-message',
           router: 'message',
         },
         {
           index: 1,
-          name: '账号信息',
+          name: 'image',
           icon: 'icon-user-info',
           router: 'userInfo',
-        },
-        {
-          index: 2,
-          name: '下载中心',
-          icon: 'icon-upload',
-          router: 'downloadCenter',
-        },
-        {
-          index: 3,
-          name: '授权统计',
-          icon: 'icon-tongji',
-          router: 'statistical',
         }
       ]
     };

@@ -3,13 +3,13 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:00:53
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-05 10:11:19
+ * @LastEditTime: 2019-06-05 17:42:43
  -->
 <template>
   <div class="title">
     <div class="logo"></div>
     <div class="text">
-      旷视软件客户服务中心
+      Drop Food 
     </div>
   </div>
 </template>
