@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:00:59
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-05 17:42:01
+ * @LastEditTime: 2019-06-05 18:06:24
  -->
 <template>
   <div class="meg-menu">
@@ -36,7 +36,7 @@ export default {
           index: 0,
           name: 'UI',
           icon: 'icon-message',
-          router: 'message',
+          router: 'ui',
         },
         {
           index: 1,

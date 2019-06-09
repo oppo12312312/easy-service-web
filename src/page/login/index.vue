@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-31 14:46:49
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-05 09:22:45
+ * @LastEditTime: 2019-06-05 18:08:08
  -->
 
 <template>
@@ -147,7 +147,7 @@ export default {
     handleLogin() {
       // this.login = false;
       this.$router.push({
-        name: 'message'
+        name: 'ui'
       });
     },
     start() {
@@ -164,7 +164,7 @@ export default {
     reVerifyNumber() {
       this.start();
       this.$router.push({
-        name: 'message'
+        name: 'ui'
       });
     }
   }

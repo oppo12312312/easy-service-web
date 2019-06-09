@@ -3,16 +3,13 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-05 14:39:23
+ * @LastEditTime: 2019-06-09 17:29:09
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import message from '@/page/message';
+import ui from '@/page/ui';
 import layout from '@/page/layout';
 import login from '@/page/login';
-import userInfo from '@/page/userInfo';
-import downloadCenter from '@/page/downloadCenter';
-import statistical from '@/page/statistical';
 
 import test from '@/page/test';
 Vue.use(VueRouter);
@@ -33,7 +30,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/ui'
     },
     {
       path: '/login',
@@ -44,27 +41,12 @@ export default new VueRouter({
       path: '/layout',
       name: 'layout',
       component: layout,
-      redirect: '/home',
+      redirect: '/ui',
       children: [
         {
-          path: '/message',
-          name: 'message',
-          component: message,
-        },
-        {
-          path: '/userInfo',
-          name: 'userInfo',
-          component: userInfo,
-        },
-        {
-          path: '/downloadCenter',
-          name: 'downloadCenter',
-          component: downloadCenter,
-        },
-        {
-          path: '/statistical',
-          name: 'statistical',
-          component: statistical,
+          path: '/ui',
+          name: 'ui',
+          component: ui,
         }
       ]
     }, {
