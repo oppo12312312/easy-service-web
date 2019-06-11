@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-09 21:01:44
+ * @LastEditTime: 2019-06-11 09:22:25
  */
 //express_demo.js 文件
 // 
@@ -25,7 +25,7 @@ app.all('/v1/*', (req, res, next) => {
 });
 
 app.use('/upload', express.static('./upload'));
-app.use(express.static('./dist'));
+app.use('/design', express.static('./dist'));
 app.use('/v1', routes);
 
 

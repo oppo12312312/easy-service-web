@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 11:12:48
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-09 21:33:31
+ * @LastEditTime: 2019-06-11 09:08:35
  -->
 <template>
   <el-dialog
@@ -105,7 +105,6 @@ export default {
   data() {
     const scope = this;
     const checkFile = (rule, value, callback) => {
-      debugger;
       if (scope.fileList.length === 0) {
         callback(new Error('请上传设计稿'));
       } else {
