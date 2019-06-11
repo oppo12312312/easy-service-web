@@ -3,17 +3,18 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-11 09:22:25
+ * @LastEditTime: 2019-06-11 18:16:53
  */
-//express_demo.js 文件
-// 
+
 const express = require('express');
 const http = require('http'); 
+//由于现在得vue是单页应用，也就是实际上不会再浏览器history中增加历史，使用这个插件后可以解决刷新浏览器后出现空白页得问题。
+const history = require('connect-history-api-fallback'); 
 const bodyParser = require('body-parser'); 
 const routes = require('./service/routes/index.js');
 
 const app = express();
-
+app.use(history());
 
 app.all('/v1/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -25,7 +26,7 @@ app.all('/v1/*', (req, res, next) => {
 });
 
 app.use('/upload', express.static('./upload'));
-app.use('/design', express.static('./dist'));
+app.use('/', express.static('./dist'));
 app.use('/v1', routes);
 
 

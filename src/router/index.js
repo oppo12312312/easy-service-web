@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-11 09:23:29
+ * @LastEditTime: 2019-06-11 18:19:51
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -30,7 +30,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/ui'
+      redirect: '/design'
     },
     {
       path: '/login',
@@ -41,11 +41,11 @@ export default new VueRouter({
       path: '/layout',
       name: 'layout',
       component: layout,
-      redirect: '/ui',
+      redirect: '/design',
       children: [
         {
-          path: '/ui',
-          name: 'ui',
+          path: '/design',
+          name: 'design',
           component: ui,
         }
       ]
