@@ -10,6 +10,10 @@ RUN npm install cnpm -g
 
 RUN rm -rf node_modules
 
+RUN rm -rf ./upload/zip/*
+
+RUN rm -rf ./upload/unzip/*
+
 RUN cnpm i
 
 RUN npm run build

@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 18:05:28
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-09 22:26:18
+ * @LastEditTime: 2019-06-11 23:01:06
  -->
 <template>
   <div class="meg-ui">
@@ -149,7 +149,7 @@ export default {
       this.getVersion();
     },
     openIndex(openIndex) {
-      window.open(config.baseUiUrl + this.activeProName + '/' + openIndex);
+      window.open(config.baseUiUrl + this.activeProName + '/' + openIndex + '/index.html');
     }
   }
 
