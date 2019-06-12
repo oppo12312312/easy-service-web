@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-21 10:13:54
- * @LastEditTime: 2019-06-09 17:15:17
+ * @LastEditTime: 2019-06-12 09:57:02
  -->
 <template>
   <div id="app">
@@ -15,7 +15,3 @@
     <router-view></router-view>
   </div>
 </template>
-<script>
-
-
-</script>
