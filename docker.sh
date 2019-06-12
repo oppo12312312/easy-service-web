@@ -3,8 +3,9 @@
  # @Author: zhongshuai
  # @Date: 2019-06-11 22:08:20
  # @LastEditors: zhongshuai
- # @LastEditTime: 2019-06-11 22:29:40
+ # @LastEditTime: 2019-06-12 10:11:19
 ###
+git pull
 echo stop design
 docker stop design
 
