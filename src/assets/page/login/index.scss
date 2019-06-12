@@ -1,12 +1,11 @@
 
 
-$base_img_login: '/login'; 
 
 .login-container {
     min-height: 100%;
     width: 100%;
     overflow: hidden;
-    background: url('#{$base_img_login}/img_bg_login.jpg') no-repeat center center;
+    background: url('#{$base_img}/login/img_bg_login.jpg') no-repeat center center;
     background-size: cover;
 
     .login-title {
@@ -20,7 +19,7 @@ $base_img_login: '/login';
         }
         .login-logo{
           width: 232px;
-          background: url('#{$base_img_login}/megvii-logo-white.png') no-repeat center center;
+          background: url('#{$base_img}/login/megvii-logo-white.png') no-repeat center center;
           background-size: contain;
         }
         height: 48px;

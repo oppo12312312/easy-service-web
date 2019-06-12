@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-11 18:19:51
+ * @LastEditTime: 2019-06-12 14:39:56
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -26,11 +26,11 @@ requireModules.keys().forEach(fileName => {
 
 
 export default new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
-      redirect: '/design'
+      redirect: '/ui'
     },
     {
       path: '/login',
@@ -41,11 +41,11 @@ export default new VueRouter({
       path: '/layout',
       name: 'layout',
       component: layout,
-      redirect: '/design',
+      redirect: '/ui',
       children: [
         {
-          path: '/design',
-          name: 'design',
+          path: '/ui',
+          name: 'ui',
           component: ui,
         }
       ]

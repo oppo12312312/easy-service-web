@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-11 22:58:37
+ * @LastEditTime: 2019-06-12 14:45:02
  */
 
 const express = require('express');
@@ -16,18 +16,17 @@ const routes = require('./service/routes/index.js');
 const app = express();
 app.use(history());
 
+
+app.use('/upload', express.static('./upload'));
+app.use('/v1', routes);
+app.use('/design', express.static('./dist', { index: 'index.html' }));
 app.all('/v1/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  //Access-Control-Allow-Headers ,可根据浏览器的F12查看,把对应的粘贴在这里就行
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   res.header('Access-Control-Allow-Methods', '*');
   res.header('Content-Type', 'application/json;charset=utf-8');
   next();
 });
-
-app.use('/upload', express.static('./upload'));
-app.use('/', express.static('./dist'));
-app.use('/v1', routes);
 
 
 app.use(bodyParser.json());//数据JSON类型
