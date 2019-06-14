@@ -3,7 +3,7 @@
  # @Author: zhongshuai
  # @Date: 2019-06-11 22:08:20
  # @LastEditors: zhongshuai
- # @LastEditTime: 2019-06-12 14:53:01
+ # @LastEditTime: 2019-06-14 09:45:47
 ###
 git pull
 echo stop design
@@ -19,4 +19,4 @@ echo build design
 docker build -t design:v1 .
 
 echo start
-docker run -d -p 1114:1114 --restart=always --name design design:v1 
+docker run -d -p 1114:1114 -v /home/security/zhongshuai/upload:/upload  --restart=always --name design design:v1 
