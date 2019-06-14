@@ -6,7 +6,7 @@ WORKDIR /home/www/express
 
 COPY . /home/www/express
 
-RUN rm -rf node_modules
+# RUN rm -rf node_modules
 
 # RUN rm -rf ./upload/zip/*
 
