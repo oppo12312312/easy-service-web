@@ -8,9 +8,9 @@ COPY . /home/www/express
 
 RUN rm -rf node_modules
 
-RUN rm -rf ./upload/zip/*
+# RUN rm -rf ./upload/zip/*
 
-RUN rm -rf ./upload/unzip/*
+# RUN rm -rf ./upload/unzip/*
 
 RUN npm install  --unsafe-perm  --registry=https://registry.npm.taobao.org  
 
