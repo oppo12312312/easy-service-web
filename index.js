@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-17 18:28:15
+ * @LastEditTime: 2019-06-17 18:50:28
  */
 
 const express = require('express');
@@ -34,6 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));//解析post请求数据
 
 
 const httpServer = http.createServer(app);
-httpServer.listen(2222, '0.0.0.0', () => {
+httpServer.listen(1114, '0.0.0.0', () => {
   console.log('success');
 });
