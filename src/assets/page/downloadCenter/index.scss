@@ -1,27 +1,22 @@
+@import "./software.scss";
+@import "./certificate.scss";
+@import "./downSoft.scss";
+@import "./downSoftDialog.scss";
 .meg-download-center{
-    @extend .fx1;
-    @extend .db;
-    @extend .v;
-    @extend .height100;
-    .el-table__expanded-cell{
-        background: $bg-content;
-        &:hover{
-            background-color: $bg-content !important
-        }
-        .char-top{
+    @extend .dbv1;
+    .el-card{
+        height: 100%;
+        @extend .db;
+        @extend .v;
+        .el-card__body{
+            @extend .fx1;
             @extend .db;
-            .left{
-                @extend .fx1;
-            }
-            
+            @extend .v;
         }
     }
-    .change-details{
-        
-        th,tr,td{
-            background: $bg-content;
-        }
+    .el-scrollbar{
+         @extend .fx1;
+    }
 
-     
-    }
 }
+

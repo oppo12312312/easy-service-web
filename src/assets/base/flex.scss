@@ -43,3 +43,10 @@
     -moz-align-items: center;
     align-items: center;
 }
+
+.dbv1{
+    @extend .db;
+    @extend .v;
+    @extend .fx1;
+    height: 100%;
+}

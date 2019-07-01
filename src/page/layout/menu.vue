@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-02 15:00:59
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-05 14:39:19
+ * @LastEditTime: 2019-06-28 11:01:29
  -->
 <template>
   <div class="meg-menu">
@@ -31,38 +31,52 @@ export default {
   name: 'Menu',
   data() {
     return {
-      menuCfg: [
-        {
-          index: 0,
-          name: '消息中心',
-          icon: 'icon-message',
-          router: 'message',
-        },
-        {
-          index: 1,
-          name: '账号信息',
-          icon: 'icon-user-info',
-          router: 'userInfo',
-        },
-        {
-          index: 2,
-          name: '下载中心',
-          icon: 'icon-upload',
-          router: 'downloadCenter',
-        },
-        {
-          index: 3,
-          name: '授权统计',
-          icon: 'icon-tongji',
-          router: 'statistical',
-        }
-      ]
+      active: '0',
     };
   },
   computed: {
-    active() {
-      return this.menuCfg[0].index + '';
+    menuCfg() {
+      return this.$store.getters['menu/getMenuList'];
     }
+  },
+  mounted() {
+    //刷新浏览器定位到指定的menu
+    // const isMegvii = this.$cookies.get('megvii_user');
+    // let role = '';
+    // if (isMegvii === 'true') {
+    //   role = 1;
+    // } else {
+    //   role = 2;
+    // }
+    // if (role === 1) {
+    //   console.log('管理员');
+    // const roleList = String(this.$cookies.get('user_role')).split('.');
+    // const list = [];
+    // if (roleList[0] !== 'null') {
+    //   if (roleList.indexOf('SUPER_ADMIN') !== -1) {
+    //     list.push(...this.menuCfg.slice(0));
+    //   }
+    //   if (roleList.indexOf('NAMESPACE_OWNER') !== -1) {
+    //     list.push(...this.menuCfg.slice(3, 5));
+    //   }
+    //   if (roleList.indexOf('NAMESPACE_WRITER') !== -1) {
+    //     list.push(...this.menuCfg.slice(4, 5));
+    //   }
+    //   if (roleList.indexOf('NAMESPACE_SUPPORTER') !== -1) {
+    //     list.push(...this.menuCfg.slice(1, 3));
+    //   }
+    //   this.menuCfg = [...new Set(list)];
+    // }
+    // }
+
+    // if (role === 2) {
+    //   console.log('普通用户');
+    // }
+    // const item = this.menuCfg.filter(item => {
+    //   return this.$route.path.split('/')[1] === item.router;
+    // });
+    this.active = this.menuCfg[0].index + '';
+    this.$router.push(this.menuCfg[0].router);
   },
   methods: {
     openPage(name) {

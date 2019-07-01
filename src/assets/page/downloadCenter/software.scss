@@ -1,0 +1,21 @@
+.meg-software{
+    .item{
+        padding: 13px 5px;
+        border-bottom: 1px solid #EBEEF5;
+        &:hover{ 
+            background-color: #f5f7fa;
+        }
+    }
+    .on{
+        background-color: #f5f7fa;   
+    }
+    .el-select{
+        width: 120px;
+        .el-input--suffix{
+            .el-icon-circle-close{
+                display: none;
+            }
+        }
+    }
+}
+

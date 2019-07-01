@@ -1,0 +1,24 @@
+mysql :
+  user : zhongshuai
+  password : mypass
+  host : 10.122.104.47
+  name : megvii_cbg_auth_platform
+  port : 3306
+shortmsg :
+  accessKeyId: LTAIkHr1ZBLnZ7Ql
+  accessKeySecret: W3Y5RyjBFeVSUuJCngHdlvPLVuP0Og
+alioss:
+  endpoint: oss-cn-beijing.aliyuncs.com
+  bucket: bj-cbg-ap-sdk
+  accessKeyId:  LTAI4nWd0ZNgoU2a
+  accessKeySecret: phQreDGsAcbmKJwynkYkoVtADFiRdt
+svrconf:
+  port: 3000
+email:
+  host: smtp.qq.com
+  port: 465
+  username: 670631053@qq.com
+  password: xxx
+  enable_ssl: true
+  enable_ssl_verify: true
+

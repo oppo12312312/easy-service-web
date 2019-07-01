@@ -1,0 +1,11 @@
+@import './searchUser.scss';
+@import './userDetaile.scss';
+.meg-user-manage{
+    @extend .dbv1;
+    .meg-search-user{
+        @extend .dbv1;
+        .el-scrollbar{
+            @extend .dbv1;
+        }
+    }
+}

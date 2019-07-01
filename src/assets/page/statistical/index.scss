@@ -1,0 +1,17 @@
+.meg-statistical{
+        @extend .dbv1;
+        .el-table{
+            background: $color-3;
+        }
+        .char-top{
+            @extend .db;
+            .left{
+                @extend .fx1;
+            }
+        }
+        .ve-histogram{
+            padding: 20px;
+            background: $color-3;
+        }
+ 
+}

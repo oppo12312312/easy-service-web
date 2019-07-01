@@ -1,0 +1,11 @@
+.user-detaile{
+    @extend .dbv1;
+    .el-tabs__content{
+        padding-top: 10px;
+        @extend .dbv1;
+        .el-scrollbar{
+            @extend .dbv1;
+        }
+    }
+    
+}

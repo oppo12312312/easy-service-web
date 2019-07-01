@@ -6,10 +6,10 @@
         background-image: linear-gradient(180deg,#0f1b62,#0a1544 50%,#0d1537);
         .is-active{
             .iconfont{
-                color: #ffffff;
+                color: $color-3;
             }
             span{
-                color: #ffffff;
+                color: $color-3;
             }
             background-image: linear-gradient(90deg,#374691,#2a3779);
         }

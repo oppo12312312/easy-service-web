@@ -1,8 +1,8 @@
 
-// $--font-path: "~element-ui/lib/theme-chalk/fonts";
-// $--color-primary: $color-5;
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+$--color-primary: $color-5;
 // $--color-text-primary: $color-5;
-// $--border-radius-base: 4px;
+$--border-radius-base: 4px;
 // @import "~element-ui/packages/theme-chalk/src/index";
 /* 滚动条初始化 */
 .el-scrollbar {
@@ -60,5 +60,24 @@
             height: 20px;
             line-height: 20px;
         }
+    }
+}
+
+
+
+/***********card***********/
+.el-card{
+    @extend .dbv1;
+    .el-card__body{
+        @extend .dbv1;
+        overflow: hidden;
+    }
+}
+
+/***********tabs***********/
+.el-tabs{
+    @extend .dbv1;
+    .el-tabs__content,.el-tab-pane,.content{
+        height: 100%;
     }
 }

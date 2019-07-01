@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-03-11 17:05:59
- * @LastEditTime: 2019-06-05 14:39:23
+ * @LastEditTime: 2019-06-25 13:58:03
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -13,8 +13,12 @@ import login from '@/page/login';
 import userInfo from '@/page/userInfo';
 import downloadCenter from '@/page/downloadCenter';
 import statistical from '@/page/statistical';
-
-import test from '@/page/test';
+import log from '@/page/log';
+import userManage from '@/page/userManage';
+import softManage from '@/page/softManage';
+import namespaceManage from '@/page/namespaceManage';
+import releaseManage from '@/page/releaseManage';
+import home from '@/page';
 Vue.use(VueRouter);
 /**
  * 自动化注册所有子路由
@@ -29,11 +33,12 @@ requireModules.keys().forEach(fileName => {
 
 
 export default new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      name: 'home',
+      component: home,
     },
     {
       path: '/login',
@@ -44,7 +49,6 @@ export default new VueRouter({
       path: '/layout',
       name: 'layout',
       component: layout,
-      redirect: '/home',
       children: [
         {
           path: '/message',
@@ -65,12 +69,33 @@ export default new VueRouter({
           path: '/statistical',
           name: 'statistical',
           component: statistical,
+        },
+        {
+          path: '/log',
+          name: 'log',
+          component: log,
+        },
+        {
+          path: '/userManage',
+          name: 'userManage',
+          component: userManage,
+        },
+        {
+          path: '/softManage',
+          name: 'softManage',
+          component: softManage,
+        },
+        {
+          path: '/namespaceManage',
+          name: 'namespaceManage',
+          component: namespaceManage,
+        },
+        {
+          path: '/releaseManage',
+          name: 'releaseManage',
+          component: releaseManage,
         }
       ]
-    }, {
-      path: '/test',
-      name: 'test',
-      component: test,
     }
   ]
 });

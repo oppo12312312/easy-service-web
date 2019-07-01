@@ -1,0 +1,20 @@
+.meg-log{
+    @extend .dbv1;
+    .top{
+        @extend .db;
+        .input-text{
+            width: 400px;
+        }
+        .tc{
+           line-height: 40px;
+           margin-right: 10px;
+        }
+
+    }
+    .buttom{
+        @extend .dbv1;
+        .el-scrollbar{
+            @extend .dbv1;
+        }
+    }
+}

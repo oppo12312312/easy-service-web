@@ -1,0 +1,58 @@
+.release-manage{
+  @extend .dbv1;
+  margin-bottom: 20px;
+  .top{
+    margin-bottom: 20px;
+  }
+  .button{
+    @extend .fx1;
+    @extend .db;
+    height: 100%;
+    .left{
+      width: 400px;
+      @extend .db;
+      @extend .v;
+      @extend .height100;
+    }
+    .right{
+      @extend .dbv1;
+    }
+  }
+  .inputClass{
+
+    width: 100%;
+
+  }
+  .add-sdk-production{
+    width: 120px;
+    float: right;
+    margin-bottom: 10px;
+  }
+  .item{
+    padding: 13px 5px;
+    border-bottom: 1px solid #EBEEF5;
+    &:hover{
+      background-color: #f5f7fa;
+    }
+    button{
+      padding: 0;
+    }
+  }
+  .on{
+    background-color: #f5f7fa;
+  }
+  .el-select{
+    width: 120px;
+  }
+  .dialogClass {
+    .el-form {
+      width: 70%;
+      margin: 0 auto;
+
+    }
+  }
+  .upload-class{
+    float: left;
+    margin-right: 20px;
+  }
+}

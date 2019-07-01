@@ -6,14 +6,19 @@
         margin-bottom: 20px;
     }
     .divider{
-        width: 50px;
+        width: 100px;
     }
     .info{
-        @extend .db;
-        @extend .v;
-        @extend .fx1;
         //home 是左右布局的，所以home下面的元素高度是自适应的，没有height 100%，就会被内容撑开
-        @extend .height100;
+        @extend .dbv1;
+        .content{
+            background-color: $color-3;
+            padding: 20px;
+            @extend .dbv1;
+            .el-scrollbar{
+                @extend .dbv1;
+            }
+        }
         
     }
 

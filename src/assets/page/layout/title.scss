@@ -1,4 +1,5 @@
 
+$base_img_login: '/imgs/login'; 
 .meg-layout{
     .title{
         @extend .db;
@@ -6,7 +7,7 @@
         background-image: linear-gradient(-90deg,#0a1544,#232f6c 63%,#23296c);        
         .logo{
             width: 143px;
-            background: url(/login/megvii-logo-white.png) no-repeat center center;
+            background: url('#{$base_img_login}/megvii-logo-white.png') no-repeat center center;
             height: 60px;
             background-size: 100px;
         }

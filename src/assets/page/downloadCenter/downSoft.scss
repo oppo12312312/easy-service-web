@@ -1,0 +1,26 @@
+.meg-down-soft{
+    @extend .dbv1;
+    margin-bottom: 20px;
+    .top{
+        margin-bottom: 20px;
+        @extend .db;
+        .el-radio-group{
+            @extend .fx1;
+        }
+    }
+    .buttom{
+        @extend .fx1;
+        @extend .db;
+        height: 100%;
+        .left{
+            width: 300px;
+            @extend .db;
+            @extend .v;
+            @extend .height100;
+        }
+         .right{
+            @extend .dbv1;
+        }
+    }
+
+}
