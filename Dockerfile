@@ -12,7 +12,7 @@ RUN rm -rf node_modules
 
 # RUN rm -rf ./upload/unzip/*
 
-RUN npm install  --unsafe-perm  --registry=https://registry.npm.taobao.org   --production
+RUN npm install  --unsafe-perm  --registry=https://registry.npm.taobao.org 
 
 RUN npm run build
 
