@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-01 16:45:54
+ * @LastEditTime: 2019-07-02 18:45:04
  */
 
 const express = require('express');
@@ -19,7 +19,7 @@ app.use(history());
 
 app.use('/upload', express.static('./upload'));
 
-app.use('/', express.static('./dist', { index: 'index.html' }));
+app.use('/design', express.static('./dist', { index: 'index.html' }));
 app.all('/v1/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
