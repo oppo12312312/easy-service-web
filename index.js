@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-17 18:50:28
+ * @LastEditTime: 2019-07-01 16:45:54
  */
 
 const express = require('express');
@@ -18,8 +18,8 @@ app.use(history());
 
 
 app.use('/upload', express.static('./upload'));
-app.use('/v1', routes);
-app.use('/design', express.static('./dist', { index: 'index.html' }));
+
+app.use('/', express.static('./dist', { index: 'index.html' }));
 app.all('/v1/*', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -27,6 +27,8 @@ app.all('/v1/*', (req, res, next) => {
   res.header('Content-Type', 'application/json;charset=utf-8');
   next();
 });
+
+app.use('/v1', routes);
 
 
 app.use(bodyParser.json());//数据JSON类型
