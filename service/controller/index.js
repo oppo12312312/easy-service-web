@@ -3,13 +3,27 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 18:21:19
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-01 17:02:05
+ * @LastEditTime: 2019-07-08 18:20:27
  */
 const fs = require('fs');
 // const unzip = require('unzip');
 const AdmZip = require('adm-zip');
 const unzipFile = './upload/unzip/';
 const zipFile = './upload/zip/';
+function deleteFolderRecursive(path) {
+  if (fs.existsSync(path)) {
+    fs.readdirSync(path).forEach((file) => {
+      const curPath = path + '/' + file;
+      if (fs.statSync(curPath).isDirectory()) { // recurse
+        deleteFolderRecursive(curPath);
+      } else { // delete file
+        fs.unlinkSync(curPath);
+      }
+    });
+    fs.rmdirSync(path);
+  }
+}
+
 const service = {
   upload: (req, res) => {
     const desFile = `${zipFile}/${req.body.name}/${req.files[0].originalname}`;
@@ -62,7 +76,7 @@ const service = {
     fs.readdir(unzipFile, (error, data) => {
       if (error) {
         console.log(error);
-        return false;
+        data = [];
       }
       data = data.filter(item => {
         return item !== '__MACOSX';
@@ -96,6 +110,35 @@ const service = {
         res.end(JSON.stringify(response));
         console.log(data); //data是数组类型，包含文件夹以及文件的名字(只有第一级目录内容)。拿到一个文件夹下面的所有目录  
       });
+    });
+  },
+  deleteProject(req, res) {
+    req.on('data', (data) => { //监听数据过来
+      let obj = decodeURIComponent(data);
+      obj = JSON.parse(data);
+      const projectName = obj.projectName;
+      const nufileNameStr = `${unzipFile}${projectName}`;
+      console.log(nufileNameStr);
+      deleteFolderRecursive(nufileNameStr);
+      const response = {
+        state: '1'
+      };
+      res.end(JSON.stringify(response));
+    });
+  },
+  deleteVersion(req, res) {
+    req.on('data', (data) => { //监听数据过来
+      let obj = decodeURIComponent(data);
+      obj = JSON.parse(data);
+      const projectName = obj.projectName;
+      const desionName = obj.desionName;
+      const name = `${unzipFile}${projectName}/${desionName}`;
+      console.log(name);
+      deleteFolderRecursive(name);
+      const response = {
+        state: '1'
+      };
+      res.end(JSON.stringify(response));
     });
   }
 };

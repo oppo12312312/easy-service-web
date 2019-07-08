@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 11:12:48
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-11 09:08:35
+ * @LastEditTime: 2019-07-08 15:46:49
  -->
 <template>
   <el-dialog
@@ -121,7 +121,7 @@ export default {
           { required: true, message: '请选择项目', trigger: 'blur' },
         ],
         design: [
-          { validator: checkFile, trigger: 'blur' }
+          { required: true, validator: checkFile, trigger: 'blur' }
         ]
       }
     };
@@ -136,8 +136,10 @@ export default {
       this.$emit('update:visible', false);
     },
     enter() {
-      this.$refs.form.validate(() => {
-        this.$refs.upload.submit();
+      this.$refs.form.validate((val) => {
+        if (val) {
+          this.$refs.upload.submit();
+        }
       });
     },
     onChange(val, fileList) {

@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 18:05:28
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-11 23:01:06
+ * @LastEditTime: 2019-07-08 18:18:09
  -->
 <template>
   <div class="meg-ui">
@@ -18,12 +18,22 @@
           :key="item"
           @click="openPrj(item, index)"
           :class="{'on': index === active}"
+          class="db"
         >
-          {{ item }}
+          <div class="fx1 item-text">
+            {{ item }}
+          </div>
+
+          <i
+            @click.stop="deleteProject(item)"
+            class="del iconfont iconshanchu"
+          ></i>
         </li>
       </ul>
     </div>
-    <div class="right">
+    <div
+      class="right"
+    >
       <div class="top">
         <megTitle>
           {{ activeProName }}
@@ -56,11 +66,24 @@
           <div class="text">
             {{ item }}
           </div>
+          <div class="tool db">
+            <!-- <div class="del-prj">
+              <i
+                @click.stop="showImgs(item)"
+                class="iconfont icontuceng"
+              ></i>
+            </div> -->
+            <div class="del-prj">
+              <i
+                @click.stop="deleteVersion(item)"
+                class="iconfont iconshanchu"
+              ></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
+    <imgs v-show="img"></imgs>
     <addProject
       :visible.sync="addVis"
       v-if="addVis"
@@ -78,13 +101,16 @@
 import megTitle from '@/components/megTitle';
 import addProject from './addProect';
 import uploadProject from './uploadProject';
+import imgs from './imgs';
+
 
 import config from '@/config.js';
 export default {
   components: {
     megTitle,
     addProject,
-    uploadProject
+    uploadProject,
+    imgs
   }, 
   data() {
     return {
@@ -93,7 +119,8 @@ export default {
       projects: [],
       versions: [],
       addVis: false,
-      uploadVis: false
+      uploadVis: false,
+      img: false
     };
   },
   computed: {
@@ -101,19 +128,54 @@ export default {
       if (this.projects.length > 0) {
         return this.projects[this.active];
       }
-      return '';
+      return '请新建项目后上传';
     }
   },
   mounted() {
     this.initPrj();
   },
   methods: {
+    deleteVersion(item) {
+      this.$confirm('确定要删除文件吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.axiosObj({
+          method: 'post',
+          url: '/deleteVersion', 
+          data: { 
+            projectName: this.projects[this.active],
+            desionName: item
+          } 
+        }).then(() => {
+          this.initPrj();
+        });
+      });
+    },
+    deleteProject(item) {
+      this.$confirm('确定要删除项目吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.axiosObj({
+          method: 'post',
+          url: '/deleteProject', 
+          data: { projectName: item } 
+        }).then(() => {
+          this.initPrj();
+        }); 
+      });
+    },
     initPrj() {
       this.axiosObj.get('/getAllProject').then(res => {
         this.projects = res.data.data;
+        this.active = 0;
         this.getVersion();
       }); 
     },
+
     getVersion() {
       this.axiosObj({
         method: 'post',
@@ -123,8 +185,8 @@ export default {
         this.versions = res.data.data;
       }); 
     },
-    getAllProject() {
-  
+    showImgs() {
+      this.img = true;
     },
     addPrj() {
       this.addVis = true;

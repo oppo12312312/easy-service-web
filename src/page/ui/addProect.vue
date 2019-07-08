@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 11:12:48
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-09 20:36:22
+ * @LastEditTime: 2019-07-08 15:44:50
  -->
 <template>
   <el-dialog
@@ -72,12 +72,15 @@ export default {
       this.$emit('update:visible', false);
     },
     enter() {
-      this.$refs.form.validate(() => {
-        this.axiosObj({ method: 'post', url: '/creatProject', data: { projectName: this.form.name } }).then(res => {
-          console.log(res);
-          this.handleClose();
-          this.$emit('addSucceed');
-        }); 
+      this.$refs.form.validate((val) => {
+        debugger;
+        if (val) {
+          this.axiosObj({ method: 'post', url: '/creatProject', data: { projectName: this.form.name } }).then(res => {
+            console.log(res);
+            this.handleClose();
+            this.$emit('addSucceed');
+          }); 
+        }
       });
     }
   }

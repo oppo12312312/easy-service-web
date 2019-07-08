@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 17:53:32
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-06-09 21:52:58
+ * @LastEditTime: 2019-07-08 17:58:46
  */
 const express = require('express');
 const router = express.Router();
@@ -19,5 +19,9 @@ router.post('/service/creatProject', service.creatProject);
 router.get('/service/getAllProject', service.getAllProject);
 
 router.post('/service/getVersion', service.getVersion);
+
+router.post('/service/deleteProject', service.deleteProject);
+
+router.post('/service/deleteVersion', service.deleteVersion);
 
 module.exports = router;
