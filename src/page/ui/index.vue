@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 18:05:28
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-08 18:18:09
+ * @LastEditTime: 2019-07-08 18:31:00
  -->
 <template>
   <div class="meg-ui">
@@ -26,7 +26,7 @@
 
           <i
             @click.stop="deleteProject(item)"
-            class="del iconfont iconshanchu"
+            class="del iconfont iconchacha"
           ></i>
         </li>
       </ul>
