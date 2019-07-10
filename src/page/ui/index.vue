@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 18:05:28
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-08 18:31:00
+ * @LastEditTime: 2019-07-09 10:23:40
  -->
 <template>
   <div class="meg-ui">
@@ -33,6 +33,7 @@
     </div>
     <div
       class="right"
+      v-show="!img"
     >
       <div class="top">
         <megTitle>
@@ -67,12 +68,12 @@
             {{ item }}
           </div>
           <div class="tool db">
-            <!-- <div class="del-prj">
+            <div class="del-prj">
               <i
                 @click.stop="showImgs(item)"
                 class="iconfont icontuceng"
               ></i>
-            </div> -->
+            </div>
             <div class="del-prj">
               <i
                 @click.stop="deleteVersion(item)"
