@@ -3,7 +3,7 @@
  # @Author: zhongshuai
  # @Date: 2019-06-11 22:08:20
  # @LastEditors: zhongshuai
- # @LastEditTime: 2019-06-17 18:50:23
+ # @LastEditTime: 2019-08-06 17:55:28
 ###
 git pull
 echo stop design
@@ -20,3 +20,4 @@ docker build -t design:v1 .
 
 echo start
 docker run -d -p 1114:1114 -v /home/security/zhongshuai/upload:/home/www/express/upload  --restart=always --name design design:v1 
+# docker run -d -p 1114:1114 -v   --restart=always --name design design:v1 

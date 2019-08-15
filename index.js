@@ -3,15 +3,15 @@
  * @Author: zhongshuai
  * @Date: 2019-05-27 22:12:14
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-02 18:45:04
+ * @LastEditTime: 2019-08-15 16:43:10
  */
-
 const express = require('express');
 const http = require('http'); 
 //由于现在得vue是单页应用，也就是实际上不会再浏览器history中增加历史，使用这个插件后可以解决刷新浏览器后出现空白页得问题。
 const history = require('connect-history-api-fallback'); 
 const bodyParser = require('body-parser'); 
-const routes = require('./service/routes/index.js');
+const routes = require('./service/routes/index');
+console.log(routes);
 
 const app = express();
 app.use(history());
