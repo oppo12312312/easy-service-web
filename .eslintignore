@@ -7,3 +7,5 @@ node_modules/
 /docker/
 /server/
 /dist/
+/public/
+/src/util/video/

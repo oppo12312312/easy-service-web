@@ -1,221 +1,48 @@
 <!--
  * @Description: 
  * @Author: zhongshuai
- * @Date: 2019-06-05 18:05:28
+ * @Date: 2019-07-08 18:05:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-09 10:23:40
+ * @LastEditTime: 2019-08-20 16:54:14
  -->
 <template>
-  <div class="meg-ui">
-    <div class="left">
-      <div class="ui-title">
-        <i class="iconfont icon-xiangmu"></i>
-        项目列表
-      </div>
-      <ul>
-        <li
-          v-for="(item,index) in projects"
-          :key="item"
-          @click="openPrj(item, index)"
-          :class="{'on': index === active}"
-          class="db"
-        >
-          <div class="fx1 item-text">
-            {{ item }}
-          </div>
-
-          <i
-            @click.stop="deleteProject(item)"
-            class="del iconfont iconchacha"
-          ></i>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="right"
-      v-show="!img"
-    >
-      <div class="top">
-        <megTitle>
-          {{ activeProName }}
-        </megTitle>
-        <div class="button">
-          <el-button
-            size="medium"
-            type="primary"
-            icon="iconfont icon-xinzeng"
-            @click="addPrj"
-            circle
-          ></el-button>
-          <el-button
-            size="medium"
-            type="success"
-            @click="uploadPrj"
-            icon="iconfont icon-shangchuan"
-            circle
-          ></el-button>
-        </div>
-      </div>
-      <div class="buttom">
-        <div
-          class="file-item"
-          v-for="item in versions"
-          :key="item"
-          @click="openIndex(item)"
-        >
-          <div class="file"></div>
-          <div class="text">
-            {{ item }}
-          </div>
-          <div class="tool db">
-            <div class="del-prj">
-              <i
-                @click.stop="showImgs(item)"
-                class="iconfont icontuceng"
-              ></i>
-            </div>
-            <div class="del-prj">
-              <i
-                @click.stop="deleteVersion(item)"
-                class="iconfont iconshanchu"
-              ></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <imgs v-show="img"></imgs>
-    <addProject
-      :visible.sync="addVis"
-      v-if="addVis"
-      @addSucceed="addSucceed"
-    ></addProject>
-    <uploadProject
-      :visible.sync="uploadVis"
-      v-if="uploadVis"
-      @onSuccess="onUploadSuccess"
-    ></uploadProject>
+  <div class="right ui-imgs">
+    <player
+      :autoPlay="true"
+      ref="player"
+      socketUrl="ws://10.122.100.139:8544/iot/stream?url=110000200200000001"
+    ></player>
   </div>
 </template>
 
 <script>
-import megTitle from '@/components/megTitle';
-import addProject from './addProect';
-import uploadProject from './uploadProject';
-import imgs from './imgs';
-
-
-import config from '@/config.js';
+// socketUrl="ws://10.122.100.139:8544/iot/stream?url=110000200200000001"
+// :socketUrl="'ws://10.122.100.215/websocket/?token=rbgALgegZviQRfcHNztHJClJmLDyyCiczIObYlDPqBZMdqSfUPsyJBttFbLb'"
+// :socketUrl="'ws://10.122.100.146:9999/stream?id=34020000001310000001'"
+// import config from '@/config.js';
+import player from '@/components/player';
 export default {
   components: {
-    megTitle,
-    addProject,
-    uploadProject,
-    imgs
-  }, 
-  data() {
-    return {
-      active: 0,
-      baseURL: config.baseURL,
-      projects: [],
-      versions: [],
-      addVis: false,
-      uploadVis: false,
-      img: false
-    };
-  },
-  computed: {
-    activeProName() {
-      if (this.projects.length > 0) {
-        return this.projects[this.active];
-      }
-      return '请新建项目后上传';
-    }
+    player
   },
   mounted() {
-    this.initPrj();
-  },
-  methods: {
-    deleteVersion(item) {
-      this.$confirm('确定要删除文件吗?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.axiosObj({
-          method: 'post',
-          url: '/deleteVersion', 
-          data: { 
-            projectName: this.projects[this.active],
-            desionName: item
-          } 
-        }).then(() => {
-          this.initPrj();
-        });
-      });
-    },
-    deleteProject(item) {
-      this.$confirm('确定要删除项目吗?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.axiosObj({
-          method: 'post',
-          url: '/deleteProject', 
-          data: { projectName: item } 
-        }).then(() => {
-          this.initPrj();
-        }); 
-      });
-    },
-    initPrj() {
-      this.axiosObj.get('/getAllProject').then(res => {
-        this.projects = res.data.data;
-        this.active = 0;
-        this.getVersion();
-      }); 
-    },
-
-    getVersion() {
-      this.axiosObj({
-        method: 'post',
-        url: '/getVersion', 
-        data: { projectName: this.activeProName } 
-      }).then(res => {
-        this.versions = res.data.data;
-      }); 
-    },
-    showImgs() {
-      this.img = true;
-    },
-    addPrj() {
-      this.addVis = true;
-    },
-    openPrj(item, index) {
-      this.active = index;
-      this.getVersion();
-    },
-    uploadPrj() {
-      this.uploadVis = true;
-    },
-    addSucceed() {
-      this.active = 0;
-      this.initPrj();
-    },
-    onUploadSuccess() {
-      this.$message({
-        message: '上传成功',
-        type: 'success'
-      });
-      this.uploadVis = false;
-      this.getVersion();
-    },
-    openIndex(openIndex) {
-      window.open(config.baseUiUrl + this.activeProName + '/' + openIndex + '/index.html');
-    }
+    this.$refs.player.emitToPlay();
+    // this.ws = new WebSocket(`${config.websocket}massage`);
+    // this.needReconnect = true;
+    // // 开启
+    // this.ws.onopen = () => {
+    //   this.reconnectAttempts = 0; // 重连上后置为0
+    //   this.timer = null;
+    //   console.log(`${this.name}的WebSocket开启成功`);
+    // };
+    // this.ws.onmessage = event => {
+    //   console.log(event.data);
+    // };
+    // this.ws.onclose = () => {
+    //   // const message = '';
+    //   console.log('close');
+    // };
   }
-
 };
 </script>
 
