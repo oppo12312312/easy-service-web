@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-08-20 11:00:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-29 09:34:46
+ * @LastEditTime: 2019-08-29 10:18:15
  -->
 <template>
   <div
@@ -78,7 +78,7 @@
 // 1 = NETWORK_IDLE - 音频/视频是活动的且已选取资源，但并未使用网络
 // 2 = NETWORK_LOADING - 浏览器正在下载数据
 // 3 = NETWORK_NO_SOURCE - 未找到音频/视频来源
-// import webplayer from '@/util/video/webplayer.js';
+import Player from '@/util/video/webplayer.js';
 export default {
   name: 'MegLivePlayer',
   props: {

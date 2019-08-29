@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-08-20 14:21:20
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-20 15:13:00
+ * @LastEditTime: 2019-08-29 10:16:49
  */
 var wasmpath = "./js/webplayer.wasm"
 
@@ -11,7 +11,7 @@ var mimeCodec = 'video/mp4; codecs="avc1.42E01E"';
 
 (function(root, factory) {
     root.Muxter = factory();
-} (this,
+} (window,
 function() {
     var getModule = function(par_faceOnMp4Data) {
         var Module = typeof Module !== "undefined" ? Module: {};
@@ -5383,12 +5383,12 @@ function() {
     }
     return Muxter;
 }));
-
+var Player;
 (function(root, factor) {
     root.Player = factor();
 } (this,
 function() {
-    var Player = function(video) {
+    Player = function(video) {
         this.muxter = new Muxter(this.onData.bind(this));
         this.reset(video);
     }
@@ -5461,3 +5461,6 @@ function() {
     }
     return Player;
 }))
+
+
+export default Player;
