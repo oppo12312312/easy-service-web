@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-06-05 11:12:48
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-07-08 15:44:50
+ * @LastEditTime: 2019-08-29 09:33:50
  -->
 <template>
   <el-dialog
@@ -73,7 +73,6 @@ export default {
     },
     enter() {
       this.$refs.form.validate((val) => {
-        debugger;
         if (val) {
           this.axiosObj({ method: 'post', url: '/creatProject', data: { projectName: this.form.name } }).then(res => {
             console.log(res);

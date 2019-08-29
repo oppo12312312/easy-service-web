@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-08-20 11:00:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-20 15:48:07
+ * @LastEditTime: 2019-08-29 09:34:46
  -->
 <template>
   <div
@@ -132,7 +132,6 @@ export default {
     };
   },
   mounted() {
-    debugger;
     this.videoPlayer = this.$refs.videoPlayer;
     this.videoPlayer.addEventListener('error', this.videoErrorFn);
     document.addEventListener('fullscreenchange', this.handleFullscreenchange);
@@ -211,7 +210,6 @@ export default {
       }, 20000);
     },
     onmessageFn(event) {
-      debugger;
       this.ifPlayNormal = true;
       const { data } = event;
       if (typeof data === 'string') {
