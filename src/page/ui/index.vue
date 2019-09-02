@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-07-08 18:05:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-28 18:56:21
+ * @LastEditTime: 2019-08-29 18:55:05
  -->
 <template>
   <div class="right ui-imgs">
@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      socketUrl: 'ws://10.122.100.139:8544/iot/stream?url=110000200200000001'
+      socketUrl: 'ws://10.231.50.8:9999/stream?id=34020000001000000001&from=1566908955&to=1566908995'
     };
   },
   mounted() {

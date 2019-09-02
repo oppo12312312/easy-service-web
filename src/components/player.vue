@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-08-20 11:00:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-29 10:18:15
+ * @LastEditTime: 2019-08-29 18:41:32
  -->
 <template>
   <div
@@ -228,8 +228,8 @@ export default {
         // this.videoData = JSON.parse(event.data);
         // this.videoData = dataObj.data;
         // const { width, height, fps } = this.videoData;
-        this.currentPlayer.init(1920, 1080, 50);
-        this.interval = 90000 / 50;
+        this.currentPlayer.init(1920, 1080, 15);
+        this.interval = 90000 / 15;
         // 检查当前是否已经开始播放，去掉Loading
         // this.checkPlayerIsPlay(1000);
         // }
