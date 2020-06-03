@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @Date: 2019-08-20 11:00:35
  * @LastEditors: zhongshuai
- * @LastEditTime: 2019-08-29 18:41:32
+ * @LastEditTime: 2020-06-03 11:41:48
  -->
 <template>
   <div
@@ -198,16 +198,16 @@ export default {
     onopenFn() {
       this.ifPlayEmpty = false;
       this.ifPlayError = false;
-      this.emitFailureTimer = setTimeout(() => {
-        if (this.messageFlag === 0) {
-          // 20s超时
-          this.emitFailureTimer && clearTimeout(this.emitFailureTimer); // eslint-disable-line
-          this.emitFailureTimer = null;
-          this.ifPlayerLoading = false;
-          this.emitToClose('error');
-          this.$emit('play-error');
-        }
-      }, 20000);
+      // this.emitFailureTimer = setTimeout(() => {
+      //   if (this.messageFlag === 0) {
+      //     // 20s超时
+      //     this.emitFailureTimer && clearTimeout(this.emitFailureTimer); // eslint-disable-line
+      //     this.emitFailureTimer = null;
+      //     this.ifPlayerLoading = false;
+      //     this.emitToClose('error');
+      //     this.$emit('play-error');
+      //   }
+      // }, 20000);
     },
     onmessageFn(event) {
       this.ifPlayNormal = true;
